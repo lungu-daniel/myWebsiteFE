@@ -1,24 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
-
+import Matrix from "./components/Matrix";
+import './components/matrix.css'
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <>
+        <Matrix/>
+          <div className="name">
+              <h1 style={{ zIndex: 1, color:"white", display: "flex",alignItems: "center"}}> Lungu Daniel</h1>
+          </div> <div className="name" style={{marginTop: "40px"}}>
+              <h2 style={{ zIndex: 1, color:"white", display: "flex",alignItems: "center"}}>UNDER MAINTENANCE</h2>
+          </div>
+      </>
   );
 }
 
