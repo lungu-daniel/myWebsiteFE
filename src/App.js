@@ -6,7 +6,7 @@ function App() {
         <Matrix/>
           <div className="name">
               <h1 style={{ zIndex: 1, color:"white", display: "flex",alignItems: "center"}}> Lungu Daniel</h1>
-          </div> <div className="name" style={{marginTop: "40px"}}>
+          </div> <div className="name" style={{marginTop: "50px"}}>
               <h2 style={{ zIndex: 1, color:"white", display: "flex",alignItems: "center"}}>UNDER MAINTENANCE</h2>
           </div>
       </>

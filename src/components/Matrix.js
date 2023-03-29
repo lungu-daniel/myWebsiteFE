@@ -16,8 +16,12 @@ const Matrix = () => {
         setColumns(newColumns);
 
         // Update the columns every 100 milliseconds
+        let j = 0;
+        let timeout = 0.01;
         const intervalId = setInterval(() => {
+            j > 300 ? timeout = 100 : j++;
             setColumns(prevColumns => {
+                console.log(j);
                 const newColumns = [...prevColumns];
                 for (let i = 0; i < newColumns.length; i++) {
                     const column = newColumns[i];
@@ -30,7 +34,7 @@ const Matrix = () => {
                 }
                 return newColumns;
             });
-        }, 100);
+        }, timeout);
 
         // Clean up the interval when the component unmounts
         return () => clearInterval(intervalId);
