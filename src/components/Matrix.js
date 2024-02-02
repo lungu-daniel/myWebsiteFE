@@ -1,56 +1,86 @@
-import './matrix.css';
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useRef } from 'react';
+import '../style.css';
 
 const Matrix = () => {
-    const [columns, setColumns] = useState([]);
+    const canvasRef = useRef(null);
+    const ctxRef = useRef(null);
 
     useEffect(() => {
-        // Create an array of columns with random characters
-        const newColumns = [];
-        for (let i = 0; i < window.innerWidth / 10; i++) {
-            newColumns.push({
-                letters: [],
-                speed: Math.floor(Math.random() * 10) + 1
-            });
+        const canvas = canvasRef.current;
+        const ctx = canvas.getContext('2d');
+        ctxRef.current = ctx;
+
+        const columns = 200;
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+[{]}|;:",<.>/?`~ ' +
+            'ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýÿ' +
+            'ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩαβγδεζηθικλμνξοπρστυφχψω' +
+            '你好我是谷歌的助手' +
+            '中文是一种美丽的语言' +
+            '汉字有着悠久的历史' +
+            '学习新语言是一种挑战' +
+            '祝你学有所成' +
+            'こんにちは私はアシスタントです' +
+            '日本語は美しい言語です' +
+            '新しい言語を学ぶことは挑戦です' +
+            '頑張ってください' +
+            '안녕하세요 나는 어시스턴트입니다' +
+            '한국어는 아름다운 언어입니다' +
+            '새로운 언어를 배우는 것은 도전입니다' +
+            '힘내세요';
+
+
+        const charactersArray = characters.split('');
+        const fontSize = 12;
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        ctx.font = `${fontSize}px monospace`;
+
+        const drops = [];
+        for (let i = 0; i < columns; i++) {
+            drops[i] = Math.floor(Math.random() * canvas.height);
         }
-        setColumns(newColumns);
 
-        // Update the columns every 100 milliseconds
-        let j = 0;
-        let timeout = 0.01;
-        const intervalId = setInterval(() => {
-            j > 300 ? timeout = 100 : j++;
-            setColumns(prevColumns => {
-                console.log(j);
-                const newColumns = [...prevColumns];
-                for (let i = 0; i < newColumns.length; i++) {
-                    const column = newColumns[i];
-                    if (column.letters.length === 0 || Math.random() < 0.1) {
-                        column.letters.unshift(String.fromCharCode(Math.floor(Math.random() * 94) + 33));
-                    }
-                    if (column.letters.length > window.innerHeight / 10) {
-                        column.letters.pop();
-                    }
+        const drawMatrix = () => {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.075)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#0F0';
+            ctx.textBaseline = 'top';
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = charactersArray[Math.floor(Math.random() * charactersArray.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
                 }
-                return newColumns;
-            });
-        }, timeout);
 
-        // Clean up the interval when the component unmounts
-        return () => clearInterval(intervalId);
+                drops[i]++;
+            }
+        };
+
+        const animate = () => {
+            drawMatrix();
+            setTimeout(() => requestAnimationFrame(animate), 70);
+        };
+
+        animate();
+
+        const handleResize = () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+            cancelAnimationFrame(animate);
+        };
     }, []);
 
-    return (
-        <div className="matrix-background">
-            {columns.map((column, index) => (
-                <div key={index} className="matrix-column" style={{animationDuration: `${column.speed}s`}}>
-                    {column.letters.map((letter, index) => (
-                        <div key={index} className="matrix-letter">{letter}</div>
-                    ))}
-                </div>
-            ))}
-        </div>
-    );
+    return <canvas ref={canvasRef} className="matrix-canvas" />;
 };
 
 export default Matrix;

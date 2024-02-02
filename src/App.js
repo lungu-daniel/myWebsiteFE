@@ -1,16 +1,23 @@
 import Matrix from "./components/Matrix";
-import './components/matrix.css'
+import "./style.css";
+import { Route, Routes } from 'react-router-dom';
+import Home from "./components/Home";
+import Projects from "./components/Projects";
+import Contact from "./components/Contact";
+import Navbar from "./components/Navbar";
+
 function App() {
-  return (
-      <>
-        <Matrix/>
-          <div className="name">
-              <h1 style={{ zIndex: 1, color:"white", display: "flex",alignItems: "center"}}> Lungu Daniel</h1>
-          </div> <div className="name" style={{marginTop: "50px"}}>
-              <h2 style={{ zIndex: 1, color:"white", display: "flex",alignItems: "center"}}>UNDER MAINTENANCE</h2>
-          </div>
-      </>
-  );
+    return (
+        <>
+            <Matrix />
+            <Navbar/>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/projects" element={<Projects />} />
+                    <Route path="/contact" element={<Contact />} />
+                </Routes>
+        </>
+    );
 }
 
 export default App;
