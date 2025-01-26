@@ -1,7 +1,6 @@
 import Matrix from "./components/Matrix";
-import "./style.css";
 import { Route, Routes } from 'react-router-dom';
-import Home from "./components/Home";
+import About from "./components/About";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Navbar from "./components/Navbar";
@@ -11,11 +10,13 @@ function App() {
         <>
             <Matrix />
             <Navbar/>
+            <div style={{ marginTop: `70px` }}>
                 <Routes>
-                    <Route path="/" element={<Home />} />
+                    <Route path="/" element={<About />} />
                     <Route path="/projects" element={<Projects />} />
                     <Route path="/contact" element={<Contact />} />
                 </Routes>
+            </div>
         </>
     );
 }
