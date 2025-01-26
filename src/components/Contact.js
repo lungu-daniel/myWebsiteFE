@@ -31,7 +31,7 @@ const Contact = () => {
                 <li style={styles.listItem}>
                     <i className="bi bi-envelope" style={styles.icon}></i>
                     <div style={styles.emailWrapper}>
-                        <p style={{ fontWeight: "bold", margin: 0 }}>Email:</p>
+                        <p style={{fontWeight: "bold", margin: 0}}>Email:</p>
                         <a
                             href="mailto:lungud995@gmail.com"
                             style={styles.link}
@@ -43,7 +43,7 @@ const Contact = () => {
                 <li style={styles.listItem}>
                     <i className="bi bi-file-earmark-text" style={styles.icon}></i>
                     <a
-                        href="/Users/daniellungu/Projects/myWebsiteFE/Professional CV Resume.pdf"
+                        href="/assets/Professional CV Resume.pdf"
                         download
                         style={styles.downloadLink}
                     >
