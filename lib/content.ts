@@ -66,12 +66,13 @@ export const featuredProjects = [
     ],
   },
   {
-    slug: "zombies-vs-plants",
+    slug: "garden-of-the-dead",
     title: "Garden of the Dead",
     description:
       "Reverse tower-defense game — you play as the Rotten King defending your house from waves of attacking plants, managing brain resources and placing the rotten strategically.",
     stack: ["C#"],
-    repo: "https://github.com/Daniel17-byte/Garden-of-the-Dead",
+    repo: "https://lungudaniel.itch.io/garden-of-the-dead",
+    linkText: "Purchase Here",
     images: [
       "/assets/GardenOfTheDead/zvp1.png",
       "/assets/GardenOfTheDead/zvp2.png",

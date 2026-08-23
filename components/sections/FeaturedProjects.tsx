@@ -30,7 +30,7 @@ export default function FeaturedProjects() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 font-mono text-sm text-accent hover:underline"
             >
-              View Repository <FaArrowRight size={11} />
+              {project.linkText ?? "View Repository"} <FaArrowRight size={11} />
             </a>
             <div className="flex flex-wrap gap-2">
               {project.stack.map((tech) => (
