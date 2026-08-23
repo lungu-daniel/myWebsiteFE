@@ -67,9 +67,9 @@ export const featuredProjects = [
   },
   {
     slug: "zombies-vs-plants",
-    title: "Zombi vs Plante",
+    title: "Garden of the Dead",
     description:
-      "Reverse tower-defense game — you play as the Zombie King defending your house from waves of attacking plants, managing brain resources and placing zombies strategically.",
+      "Reverse tower-defense game — you play as the Rotten King defending your house from waves of attacking plants, managing brain resources and placing the rotten strategically.",
     stack: ["C#"],
     repo: "https://github.com/Daniel17-Byte/ZombiesVsPlants",
     images: [
