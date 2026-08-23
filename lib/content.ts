@@ -73,11 +73,11 @@ export const featuredProjects = [
     stack: ["C#"],
     repo: "https://github.com/Daniel17-byte/Garden-of-the-Dead",
     images: [
-      "/assets/ZombiesVsPlants/zvp1.png",
-      "/assets/ZombiesVsPlants/zvp2.png",
-      "/assets/ZombiesVsPlants/zvp3.png",
-      "/assets/ZombiesVsPlants/zvp4.png",
-      "/assets/ZombiesVsPlants/zvp5.png",
+      "/assets/GardenOfTheDead/zvp1.png",
+      "/assets/GardenOfTheDead/zvp2.png",
+      "/assets/GardenOfTheDead/zvp3.png",
+      "/assets/GardenOfTheDead/zvp4.png",
+      "/assets/GardenOfTheDead/zvp5.png",
     ],
   },
 ];
