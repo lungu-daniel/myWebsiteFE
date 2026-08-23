@@ -71,7 +71,7 @@ export const featuredProjects = [
     description:
       "Reverse tower-defense game — you play as the Rotten King defending your house from waves of attacking plants, managing brain resources and placing the rotten strategically.",
     stack: ["C#"],
-    repo: "https://github.com/Daniel17-Byte/ZombiesVsPlants",
+    repo: "https://github.com/Daniel17-byte/Garden-of-the-Dead",
     images: [
       "/assets/ZombiesVsPlants/zvp1.png",
       "/assets/ZombiesVsPlants/zvp2.png",
@@ -118,6 +118,7 @@ export const excludedRepoNames = [
   "e-shopXAMPP",
   "cinemaBE",
   "Movies",
+  "AssignmentsOS",
 ];
 
 export const navSections = [
