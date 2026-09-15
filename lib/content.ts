@@ -71,7 +71,7 @@ export const featuredProjects = [
     description:
       "Reverse tower-defense game — you play as the Rotten King defending your house from waves of attacking plants, managing brain resources and placing the rotten strategically.",
     stack: ["C#"],
-    repo: "https://lungudaniel.itch.io/garden-of-the-dead",
+    repo: "https://store.steampowered.com/app/5244710/Garden_of_the_Dead/",
     linkText: "Purchase Here",
     images: [
       "/assets/GardenOfTheDead/zvp1.png",
