@@ -27,7 +27,7 @@ export const experience = [
     company: "SC Reea SRL",
     logo: "/assets/reea-logo.png",
     role: "Software Engineer",
-    period: "2021 – 2025",
+    period: "2020 – 2025",
     bullets: [
       "Developed backend features for airline industry projects using Java as the core language.",
       "Utilized Spring Boot for microservices architecture, Jenkins for CI/CD, and AWS for deploying scalable cloud solutions.",
