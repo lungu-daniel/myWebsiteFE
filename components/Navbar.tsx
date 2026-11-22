@@ -1,12 +1,15 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { HiBars3, HiXMark } from "react-icons/hi2";
 import { navSections, siteName } from "@/lib/content";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [active, setActive] = useState(navSections[0].id);
+  const pathname = usePathname();
+  const onHomePage = pathname === "/";
 
   const closeMenu = () => setMenuOpen(false);
 
@@ -14,6 +17,11 @@ export default function Navbar() {
     const sections = navSections
       .map((s) => document.getElementById(s.id))
       .filter((el): el is HTMLElement => el !== null);
+
+    if (sections.length === 0) {
+      setActive("");
+      return;
+    }
 
     let ticking = false;
     const updateActive = () => {
@@ -54,7 +62,7 @@ export default function Navbar() {
     <>
       <nav className="fixed top-0 left-0 right-0 z-40 bg-background/70 backdrop-blur-md">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-4">
-          <a href="#about" className="font-mono text-sm font-medium text-foreground">
+          <a href={onHomePage ? "#about" : "/"} className="font-mono text-sm font-medium text-foreground">
             {siteName}
           </a>
 
@@ -62,9 +70,9 @@ export default function Navbar() {
             {navSections.map((section) => (
               <li key={section.id}>
                 <a
-                  href={`#${section.id}`}
+                  href={onHomePage ? `#${section.id}` : `/#${section.id}`}
                   className={`text-sm transition-colors hover:text-foreground ${
-                    active === section.id ? "text-foreground" : "text-muted"
+                    onHomePage && active === section.id ? "text-foreground" : "text-muted"
                   }`}
                 >
                   {section.label}
@@ -101,10 +109,10 @@ export default function Navbar() {
             {navSections.map((section) => (
               <li key={section.id}>
                 <a
-                  href={`#${section.id}`}
+                  href={onHomePage ? `#${section.id}` : `/#${section.id}`}
                   onClick={closeMenu}
                   className={`block py-2 text-lg ${
-                    active === section.id ? "text-foreground" : "text-muted"
+                    onHomePage && active === section.id ? "text-foreground" : "text-muted"
                   }`}
                 >
                   {section.label}
